@@ -12,20 +12,20 @@ Python-приложение для генерации картин в стиле
 
 ## Установка
 
-1. Клонировать репозиторий:
+1. Клонируйте репозиторий:
 
 ```bash
 git clone <репозиторий>
 cd virtual_artist
 ```
 
-2. Установить зависимости:
+2. Установите зависимости:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Скачать модель Stable Diffusion локально (опционально):
+3. Скачайте модель Stable Diffusion локально (опционально):
 
 ```bash
 python app/download_models.py
@@ -68,3 +68,5 @@ python app/main.py --prompt "ночной город" --style vangogh --brightne
 * monet — Клод Моне
 * abstract — абстрактный стиль
 * cyberpunk — киберпанк
+
+На этом всё, спасибо, что посмотрели!
