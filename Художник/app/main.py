@@ -8,15 +8,10 @@ artist = VirtualArtist()
 
 def generate_artwork(user_prompt, style, brightness, contrast, sharpness):
     prompt = enhance_prompt(user_prompt, style)
-
     image = artist.generate_image(prompt)
-
     image = enhance_image(image, brightness, contrast, sharpness)
-
     save_path = save_image(image)
-    
     gallery_images = get_gallery_images()
-    
     return image, save_path, gallery_images
 
 def get_gallery_images():
@@ -25,7 +20,7 @@ def get_gallery_images():
         key=os.path.getmtime,
         reverse=True
     )
-    return files  # теперь возвращаем пути, а не PIL.Image
+    return files
 
 styles_list = ["vangogh", "picasso", "monet", "abstract", "cyberpunk"]
 
@@ -41,7 +36,7 @@ interface = gr.Interface(
     outputs=[
         gr.Image(type="pil", label="Сгенерированная картина"),
         gr.Textbox(label="Путь к сохранённой картине"),
-        gr.Gallery(label="Галерея всех картин")  # возвращаем список путей
+        gr.Gallery(label="Галерея всех картин")
     ],
     title="Виртуальный художник",
     description="Генерация картин в стиле разных художников с помощью Stable Diffusion с постобработкой и галереей"
