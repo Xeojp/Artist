@@ -16,7 +16,14 @@ class VirtualArtist:
         if not prompt.strip():
             raise ValueError("Промпт не может быть пустым")
         try:
-            result = self.pipe(prompt, width=width, height=height, num_inference_steps=num_inference_steps, guidance_scale=guidance_scale, num_images_per_prompt=num_images)
-            return result.images if num_images > 1 else result.images[0]
+            result = self.pipe(
+                prompt,
+                width=width,
+                height=height,
+                num_inference_steps=num_inference_steps,
+                guidance_scale=guidance_scale,
+                num_images_per_prompt=num_images
+            )
+            return result.images[0]
         except Exception as e:
             raise RuntimeError(f"Ошибка при генерации изображения: {e}")
